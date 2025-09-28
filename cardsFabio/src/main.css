@@ -8,7 +8,7 @@ SIM, ESTOU FALANDO COM VOCE, LEITE.
     --card-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
     --muted: #98a6bb;
     --accent: #3ee6b7;
-    --gap: 18px;
+    --gap: 36px;
     --card-radius: 12px;
     --img-height: 220px;
     --max-width: 1200px;
@@ -21,7 +21,7 @@ SIM, ESTOU FALANDO COM VOCE, LEITE.
   body {
     margin: 0;
     font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
-    background: linear-gradient(180deg,#04101a 0%, #07111a 100%);
+    background: rgb(13, 26, 45);
     color: var(--text-color);
     padding: 24px;
     -webkit-font-smoothing: antialiased;
@@ -49,7 +49,8 @@ SIM, ESTOU FALANDO COM VOCE, LEITE.
   }
   
   .cardOverall {
-    background: var(--card-bg);
+    position: relative;
+    background:  rgb(21, 39, 63);
     border-radius: var(--card-radius);
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -59,6 +60,20 @@ SIM, ESTOU FALANDO COM VOCE, LEITE.
     border: 1px solid rgba(255,255,255,0.03);
     min-height: 360px;
   }
+  .price {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  color: #3ee6b7;
+  font-weight: bold;
+  font-size: 1.1rem;
+  background: rgba(0,0,0,0.18);
+  padding: 4px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 2;
+}
   
   .cardOverall:hover,
   .cardOverall:focus-within {
@@ -97,6 +112,7 @@ SIM, ESTOU FALANDO COM VOCE, LEITE.
     object-position: center;
   }
   
+  
   .cardOverall .name,
   .cardOverall .desc {
     padding: 14px 16px;
@@ -115,6 +131,7 @@ SIM, ESTOU FALANDO COM VOCE, LEITE.
     font-size: 0.93rem;
     color: var(--muted);
     font-weight: 500;
+    padding-bottom: 38px;
   }
   
   .cardOverall .meta {
@@ -123,6 +140,58 @@ SIM, ESTOU FALANDO COM VOCE, LEITE.
     border-top: 1px solid rgba(255,255,255,0.02);
     color: var(--muted);
     font-size: 0.9rem;
+  }
+  
+  /* Responsividade aprimorada */
+  @media (min-width: 1200px) {
+    .cards {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+    }
+    .cardOverall {
+      min-height: 380px;
+    }
+  }
+  
+  @media (max-width: 1199px) and (min-width: 900px) {
+    .cards {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+    .cardOverall {
+      min-height: 340px;
+    }
+  }
+  
+  @media (max-width: 899px) and (min-width: 600px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .cardOverall {
+      min-height: 300px;
+    }
+    .mainText {
+      font-size: 1.1rem;
+      text-align: center;
+      padding-left: 0;
+    }
+  }
+  
+  @media (max-width: 599px) {
+    .cards {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .cardOverall {
+      min-height: 220px;
+    }
+    .mainText {
+      font-size: 1rem;
+      text-align: center;
+      padding-left: 0;
+    }
+    :root { --img-height: 120px; }
   }
   
   @media (max-width: 900px) {
@@ -147,8 +216,8 @@ SIM, ESTOU FALANDO COM VOCE, LEITE.
     gap: var(--gap);
     justify-content: center;
   }
+  
   .cards-fallback > .cardOverall {
     flex: 1 1 260px;
     max-width: 420px;
   }
-  
