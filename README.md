@@ -1,0 +1,2 @@
+# Readme base
+ainda nao feito (omg?!!?!!??!?!)
